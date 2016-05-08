@@ -1,0 +1,5 @@
+suites:
+    main:
+        namespace: CinemaPHP
+        psr4_prefix: CinemaPHP
+        src_path: app
