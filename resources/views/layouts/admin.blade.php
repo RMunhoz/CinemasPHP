@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SB Admin 2 - Bootstrap Admin Theme</title>
-
+   
     {!!Html::style('css/bootstrap.min.css')!!}
     {!!Html::style('css/metisMenu.min.css')!!}
     {!!Html::style('css/sb-admin-2.css')!!}
@@ -101,6 +101,7 @@
 
     </div>
     
+
 
     {!!Html::script('js/jquery.min.js')!!}
     {!!Html::script('js/bootstrap.min.js')!!}

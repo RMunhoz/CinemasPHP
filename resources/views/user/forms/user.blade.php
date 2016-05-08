@@ -1,12 +1,12 @@
-		<div class="form-group">
-			{!!Form::label('Nombre:')!!}
-			{!!Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el Nombre del Usuario'])!!}
-		</div>
-		<div class="form-group">
-			{!!Form::label('Correo:')!!}
-			{!!Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Ingrese el email'])!!}
-		</div>
-		<div class="form-group">
-			{!!Form::label('Password:')!!}
-			{!!Form::password('password',  ['class'=>'form-control', 'placeholder'=>'Ingrese el password'])!!}
-		</div>
+	<div class="form-group">
+		{!!Form::label('Nome:')!!}
+		{!!Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Nome do Usuario'])!!}
+	</div>
+	<div class="form-group">
+		{!!Form::label('Email:')!!}
+		{!!Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Email'])!!}
+	</div>
+	<div class="form-group">
+		{!!Form::label('Password:')!!}
+		{!!Form::password('password',  ['class'=>'form-control', 'placeholder'=>'Password'])!!}
+	</div>
