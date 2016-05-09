@@ -7,4 +7,6 @@ Route::get('admin', ['as'=>'admin', 'uses'=>'FrontController@admin']);
 
 Route::resource('user', 'UsersController');
 
+Route::get('user/destroy/{id}', ['as'=>'user.destroy', 'uses'=>'UsersController@destroy']);
+
 
