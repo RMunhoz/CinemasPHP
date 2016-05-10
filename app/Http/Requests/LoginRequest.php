@@ -4,7 +4,7 @@ namespace CinemaPHP\Http\Requests;
 
 use CinemaPHP\Http\Requests\Request;
 
-class UserUpdateRequest extends Request
+class LoginRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,8 @@ class UserUpdateRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
+            //'email' => 'require|email',
+            'password' => 'require',
         ];
     }
 }

@@ -3,6 +3,7 @@
 namespace CinemaPHP\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Session;
 
 use CinemaPHP\User;
@@ -16,9 +17,17 @@ class UsersController extends Controller
 	private $userModel;
 
 	public function __construct(User $user)
-	{
+	{  
+        $this->middleware('auth');
+        $this->middleware('admin');
+        $this->beforeFilter('@find',['only'=>['edit','update', 'destroy']]);
 		$this->userModel = $user;
 	}
+
+    public function find(Route $route)
+    {
+        $this->user = $this->userModel->find($route->getParameter('user'));
+    }
 
     public function index()
     {
@@ -47,22 +56,29 @@ class UsersController extends Controller
 
     public function edit($id)
     {
-    	$user = $this->userModel->find($id);
-    	return view('user.edit', compact('user'));
+    	//$user = $this->userModel->find($id);
+    	return view('user.edit', ['user'=>$this->user]);
     }
 
     public function update(UserUpdateRequest $request, $id)
     {
-    	$user = User::find($id);
-    	$user->fill($request->all());
-    	$user->save();
+    	//$user = User::find($id);
+    	$this->user->fill($request->all());
+    	$this->user->save();
     	Session::flash('message', 'Usuario editado com sucesso!');
     	return redirect()->route('user.index');	
+    }
+
+    public function show($id)
+    {
+        //
     }
 
     public function destroy($id)
     {
     	$this->userModel->find($id)->delete();
+        //$this->user->delete();
+        Session::flash('message', 'Usuario deletado com sucesso!');
     	return redirect()->route('user.index');	
     }
 }

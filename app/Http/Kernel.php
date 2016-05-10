@@ -29,5 +29,6 @@ class Kernel extends HttpKernel
         'auth' => \CinemaPHP\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
         'guest' => \CinemaPHP\Http\Middleware\RedirectIfAuthenticated::class,
+        'admin' =>  \CinemaPHP\Http\Middleware\Admin::class,
     ];
 }

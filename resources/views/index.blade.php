@@ -1,5 +1,8 @@
 @extends('layouts.principal')
 
+	@include('alerts.error')
+	@include('alerts.request')
+
 @section('content')
 
 		<div class="header">
@@ -16,6 +19,22 @@
 				</div>
 				<div class="clearfix"></div>
 			</div>
+
+			<div class="header-info">
+				<h1>BIG HERO</h1>
+				{!!Form::open(['route'=>'log.store', 'method'=>'POST'])!!}
+					<div class="form-group">
+						{!!Form::label('email', 'Email:')!!}
+						{!!Form::text('email', null, ['class'=>'form-control', 'placeholder'=>'Insira seu email'])!!}
+					</div>
+					<div class="form-group">
+						{!!Form::label('Senha', 'Senha:')!!}
+						{!!Form::password('password', ['class'=>'form-control', 'placeholder'=>'Insira sua senha'])!!}
+					</div>
+					{!!Form::submit('Entrar', ['class'=>'btn btn-primary'])!!}
+				{!!Form::close()!!}	
+			</div>
+			<!-- Omitindo o review
 			<div class="header-info">
 				<h1>BIG HERO 6</h1>
 				<p class="age"><a href="#">All Age</a> Don Hall, Chris Williams</p>
@@ -26,6 +45,8 @@
 				<a class="video" href="#"><i class="video1"></i>WATCH TRAILER</a>
 				<a class="book" href="#"><i class="book1"></i>BOOK TICKET</a>
 			</div>
+			-->
+
 		</div>
 		<div class="review-slider">
 			 <ul id="flexiselDemo1">
