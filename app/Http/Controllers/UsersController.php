@@ -21,12 +21,12 @@ class UsersController extends Controller
         $this->middleware('auth');
         $this->middleware('admin');
         $this->beforeFilter('@find',['only'=>['edit','update', 'destroy']]);
-		$this->userModel = $user;
+		//$this->userModel = $user;
 	}
 
     public function find(Route $route)
     {
-        $this->user = $this->userModel->find($route->getParameter('user'));
+        $this->user = User::find($route->getParameter('user'));
     }
 
     public function index()
@@ -35,7 +35,7 @@ class UsersController extends Controller
     	//$users = $this->userModel->all();
         //Exibe somente os dados já excluidos
         //$users = $this->userModel->onlyTrashed()->paginate(4);
-        $users = $this->userModel->paginate(4);
+        $users = User::paginate(4);
     	return view('user.index', compact('users'));
     }
 
@@ -48,7 +48,7 @@ class UsersController extends Controller
     {
     	$input = $request->all();
     	//$input['password'] = bcrypt($input['password']);
-    	$user = $this->userModel->fill($input);
+    	$user = User::fill($input);
     	$user->save();
     	Session::flash('message', 'Usuario criado com sucesso!');
     	return redirect()->route('user.index');
@@ -76,9 +76,9 @@ class UsersController extends Controller
 
     public function destroy($id)
     {
-    	$this->userModel->find($id)->delete();
+    	User::find($id)->delete();
         //$this->user->delete();
         Session::flash('message', 'Usuario deletado com sucesso!');
-    	return redirect()->route('user.index');	
+    	return redirect()->route('user');	
     }
 }
