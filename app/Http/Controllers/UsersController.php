@@ -29,14 +29,17 @@ class UsersController extends Controller
         $this->user = User::find($route->getParameter('user'));
     }
 
-    public function index()
+    public function index(Request $request)
     {
     	//$users = User::all();
     	//$users = $this->userModel->all();
         //Exibe somente os dados já excluidos
         //$users = $this->userModel->onlyTrashed()->paginate(4);
         $users = User::paginate(4);
-    	return view('user.index', compact('users'));
+        if($request->ajax()){
+            return response()->json(view('user.users', compact('users'))->render());    
+        }   
+       	return view('user.index', compact('users'));
     }
 
     public function create()
