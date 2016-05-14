@@ -1,10 +1,10 @@
 <?php
 
-namespace CinemaPHP\Http\Controllers\Auth;
+namespace Cinema\Http\Controllers\Auth;
 
-use CinemaPHP\User;
+use Cinema\User;
 use Validator;
-use CinemaPHP\Http\Controllers\Controller;
+use Cinema\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 

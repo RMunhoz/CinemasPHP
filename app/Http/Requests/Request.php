@@ -1,6 +1,6 @@
 <?php
 
-namespace CinemaPHP\Http\Requests;
+namespace Cinema\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

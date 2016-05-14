@@ -1,6 +1,6 @@
 <?php
 
-namespace CinemaPHP\Http;
+namespace Cinema\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -13,11 +13,11 @@ class Kernel extends HttpKernel
      */
     protected $middleware = [
         \Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode::class,
-        \CinemaPHP\Http\Middleware\EncryptCookies::class,
+        \Cinema\Http\Middleware\EncryptCookies::class,
         \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
         \Illuminate\Session\Middleware\StartSession::class,
         \Illuminate\View\Middleware\ShareErrorsFromSession::class,
-        \CinemaPHP\Http\Middleware\VerifyCsrfToken::class,
+        \Cinema\Http\Middleware\VerifyCsrfToken::class,
     ];
 
     /**
@@ -26,9 +26,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth' => \CinemaPHP\Http\Middleware\Authenticate::class,
+        'auth' => \Cinema\Http\Middleware\Authenticate::class,
         'auth.basic' => \Illuminate\Auth\Middleware\AuthenticateWithBasicAuth::class,
-        'guest' => \CinemaPHP\Http\Middleware\RedirectIfAuthenticated::class,
-        'admin' =>  \CinemaPHP\Http\Middleware\Admin::class,
+        'guest' => \Cinema\Http\Middleware\RedirectIfAuthenticated::class,
+        'admin' => \Cinema\Http\Middleware\Admin::class,
     ];
 }

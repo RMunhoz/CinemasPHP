@@ -1,20 +1,17 @@
 <?php
 
-namespace CinemaPHP\Http\Middleware;
-
+namespace Cinema\Http\Middleware;
 use Illuminate\Contracts\Auth\Guard;
-use Illuminate\Support\Facades\Session;
 use Closure;
+use Session;
 
 class Admin
 {
-    protected $auth_admin;
+    protected $auth;
 
-    public function __construct(Guard $auth)
-    {
-        $this->auth_admin = $auth;
+    public function __construct(Guard $auth){
+        $this->auth = $auth;
     }
-
     /**
      * Handle an incoming request.
      *
@@ -24,9 +21,9 @@ class Admin
      */
     public function handle($request, Closure $next)
     {
-        if($this->auth_admin->user()->id != 1){
-            Session::flash('message-error', 'Sem privilegios');
-            return redirect()->route('admin');
+        if($this->auth->user()->id != 1){
+            Session::flash('message-error','Sin privilegios');
+            return redirect()->to('admin');
         }
         return $next($request);
     }

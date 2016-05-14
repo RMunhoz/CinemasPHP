@@ -1,6 +1,6 @@
 <?php
 
-namespace CinemaPHP\Http\Middleware;
+namespace Cinema\Http\Middleware;
 
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
 

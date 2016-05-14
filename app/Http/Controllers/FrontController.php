@@ -1,36 +1,32 @@
 <?php
 
-namespace CinemaPHP\Http\Controllers;
+namespace Cinema\Http\Controllers;
 
 use Illuminate\Http\Request;
-
-use CinemaPHP\Http\Requests;
-use CinemaPHP\Http\Controllers\Controller;
+use Cinema\Http\Requests;
+use Cinema\Http\Controllers\Controller;
+use Cinema\Movie;
 
 class FrontController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth', ['only'=>'admin']);
-    }
+  public function __construct(){
+    $this->middleware('auth',['only' => 'admin']);
+  }
 
-    public function index()
-    {
-    	return view('index');
-    }
+   public function index(){
+        return view('index');
+   }
 
-    public function contacto()
-    {
-		return view('contacto');
-    }
+   public function contacto(){
+        return view('contacto');
+   }
 
-    public function reviews()
-    {
-    	return view('reviews');
-    }
+   public function reviews(){
+      $movies = Movie::Movies();
+      return view('reviews',compact('movies'));
+   }
 
-    public function admin()
-    {
+   public function admin(){
         return view('admin.index');
-    }
+   }
 }

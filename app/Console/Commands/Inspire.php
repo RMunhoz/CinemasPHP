@@ -1,6 +1,6 @@
 <?php
 
-namespace CinemaPHP\Console\Commands;
+namespace Cinema\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

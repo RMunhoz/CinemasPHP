@@ -1,6 +1,6 @@
 $("#registro").click(function(){
 	var dato = $("#genre").val();
-	var route = "http://localhost:8000/genero";
+	var route = "/genero";
 	var token = $("#token").val();
 
 	$.ajax({
@@ -12,12 +12,10 @@ $("#registro").click(function(){
 
 		success:function(){
 			$("#msj-success").fadeIn();
-		}, 
-		error: function(msj){
-			console.log(msj.responseJSON.genre);
+		},
+		error:function(msj){
 			$("#msj").html(msj.responseJSON.genre);
 			$("#msj-error").fadeIn();
 		}
-
 	});
 });

@@ -1,8 +1,8 @@
 <?php
 
-namespace CinemaPHP\Http\Requests;
+namespace Cinema\Http\Requests;
 
-use CinemaPHP\Http\Requests\Request;
+use Cinema\Http\Requests\Request;
 
 class GenreRequest extends Request
 {
@@ -24,7 +24,7 @@ class GenreRequest extends Request
     public function rules()
     {
         return [
-            'genre' =>  'required|min: 3',
+            'genre' => 'required|min:3',
         ];
     }
 }

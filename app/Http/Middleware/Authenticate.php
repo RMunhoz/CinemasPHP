@@ -1,6 +1,6 @@
 <?php
 
-namespace CinemaPHP\Http\Middleware;
+namespace Cinema\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;
@@ -15,7 +15,7 @@ class Authenticate
     protected $auth;
 
     /**
-     * Create a new middleware instance.
+     * Create a new filter instance.
      *
      * @param  Guard  $auth
      * @return void

@@ -1,6 +1,6 @@
 <?php
 
-namespace CinemaPHP;
+namespace Cinema;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -39,11 +39,9 @@ class User extends Model implements AuthenticatableContract,
     protected $hidden = ['password', 'remember_token'];
 
     protected $dates = ['deleted_at'];
- 
-    public function setPasswordAttribute($valor)
-    {
-        if(!empty($valor))
-        {
+
+    public function setPasswordAttribute($valor){
+        if(!empty($valor)){
             $this->attributes['password'] = \Hash::make($valor);
         }
     }

@@ -1,8 +1,8 @@
 <?php
 
-namespace CinemaPHP\Http\Requests;
+namespace Cinema\Http\Requests;
 
-use CinemaPHP\Http\Requests\Request;
+use Cinema\Http\Requests\Request;
 
 class LoginRequest extends Request
 {
@@ -24,8 +24,8 @@ class LoginRequest extends Request
     public function rules()
     {
         return [
-            //'email' => 'require|email',
-            'password' => 'require',
+            'password'=> 'required',
+            'email' => 'required|email',
         ];
     }
 }

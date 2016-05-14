@@ -1,6 +1,6 @@
 <?php
 
-namespace CinemaPHP\Events;
+namespace Cinema\Events;
 
 abstract class Event
 {

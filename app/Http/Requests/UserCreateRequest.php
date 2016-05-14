@@ -1,8 +1,8 @@
 <?php
 
-namespace CinemaPHP\Http\Requests;
+namespace Cinema\Http\Requests;
 
-use CinemaPHP\Http\Requests\Request;
+use Cinema\Http\Requests\Request;
 
 class UserCreateRequest extends Request
 {
@@ -24,9 +24,9 @@ class UserCreateRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6',
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
         ];
     }
 }

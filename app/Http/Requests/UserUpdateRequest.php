@@ -1,8 +1,8 @@
 <?php
 
-namespace CinemaPHP\Http\Requests;
+namespace Cinema\Http\Requests;
 
-use CinemaPHP\Http\Requests\Request;
+use Cinema\Http\Requests\Request;
 
 class UserUpdateRequest extends Request
 {
@@ -24,8 +24,8 @@ class UserUpdateRequest extends Request
     public function rules()
     {
         return [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
+            'name' => 'required',
+            'email' => 'required',
         ];
     }
 }

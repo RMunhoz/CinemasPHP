@@ -1,19 +1,31 @@
 <?php
 
-Route::get('/', ['as'=>'index', 'uses'=>'FrontController@index']);
-Route::get('contacto', ['as'=>'contacto', 'uses'=>'FrontController@contacto']);
-Route::get('reviews', ['as'=>'reviews', 'uses'=>'FrontController@reviews']);
-Route::get('admin', ['as'=>'admin', 'uses'=>'FrontController@admin']);
+/*
+|--------------------------------------------------------------------------
+| Application Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register all of the routes for an application.
+| It's a breeze. Simply tell Laravel the URIs it should respond to
+| and give it the controller to call when that URI is requested.
+| POST, GET, PUT, DELETE
+*/
 
-//Route::get('user/destroy/{id}', ['as'=>'user.destroy', 'uses'=>'UsersController@destroy']);
+Route::get('/','FrontController@index');
+Route::get('contacto','FrontController@contacto');
+Route::get('reviews','FrontController@reviews');
+Route::get('admin','FrontController@admin');
 
-Route::resource('user', 'UsersController');
-Route::resource('genero', 'GeneroController');
-Route::get('generos', ['as'=> 'generos.list', 'uses'=>'GeneroController@listing']);
+Route::get('password/email','Auth\PasswordController@getEmail');
+Route::post('password/email','Auth\PasswordController@postEmail');
 
-Route::resource('log', 'LogController');
-Route::get('logout', ['as'=> 'logout', 'uses'=>'LogController@logout']);
+Route::get('password/reset/{token}','Auth\PasswordController@getReset');
+Route::post('password/reset','Auth\PasswordController@postReset');
 
+Route::resource('mail','MailController');
+Route::resource('usuario','UsuarioController');
+Route::resource('genero','GeneroController');
+Route::resource('pelicula','MovieController');
 
-
-
+Route::resource('log','LogController');
+Route::get('logout','LogController@logout');

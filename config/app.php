@@ -35,11 +35,11 @@ return [
     |
     | Here you may specify the default timezone for your application, which
     | will be used by the PHP date and date-time functions. We have gone
-    | ahead and set tAmerica/Sao_Paulohis to a sensible default for you out of the box.
+    | ahead and set this to a sensible default for you out of the box.
     |
     */
 
-    'timezone' => 'America/Sao_Paulo',
+    'timezone' => 'America/Mexico_City',
 
     /*
     |--------------------------------------------------------------------------
@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'locale' => 'pt-BR',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -95,7 +95,7 @@ return [
     |
     */
 
-    'log' => env('APP_LOG', 'single'),
+    'log' => 'single',
 
     /*
     |--------------------------------------------------------------------------
@@ -136,15 +136,19 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
-        \Illuminate\Html\HtmlServiceProvider::class,
 
         /*
          * Application Service Providers...
          */
-        CinemaPHP\Providers\AppServiceProvider::class,
-        CinemaPHP\Providers\AuthServiceProvider::class,
-        CinemaPHP\Providers\EventServiceProvider::class,
-        CinemaPHP\Providers\RouteServiceProvider::class,
+        Cinema\Providers\AppServiceProvider::class,
+        Cinema\Providers\AuthServiceProvider::class,
+        Cinema\Providers\EventServiceProvider::class,
+        Cinema\Providers\RouteServiceProvider::class,
+
+        /*
+         * Laravel Collective Service Providers...
+         */
+        Collective\Html\HtmlServiceProvider::class,
 
     ],
 
@@ -177,6 +181,7 @@ return [
         'Gate'      => Illuminate\Support\Facades\Gate::class,
         'Hash'      => Illuminate\Support\Facades\Hash::class,
         'Input'     => Illuminate\Support\Facades\Input::class,
+        'Inspiring' => Illuminate\Foundation\Inspiring::class,
         'Lang'      => Illuminate\Support\Facades\Lang::class,
         'Log'       => Illuminate\Support\Facades\Log::class,
         'Mail'      => Illuminate\Support\Facades\Mail::class,
@@ -193,9 +198,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-        'Form'      => \Illuminate\Html\FormFacade::class,
-        'Html'      => \Illuminate\Html\HtmlFacade::class,
-
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
